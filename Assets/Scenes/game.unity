@@ -158,6 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad5c922e164c3ed44a3d5c1f7c609a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FihSpawner
+  fihToSpawn: {fileID: 2834411857680878358, guid: 987d67e91d9354847abc87e132a3d6a0, type: 3}
+  timer: 0.3
 --- !u!4 &46094304
 Transform:
   m_ObjectHideFlags: 0

@@ -8,13 +8,13 @@ using UnityEngine.SceneManagement;
 public class Crashable : MonoBehaviour
 {
 
-    private MeshCollider collider;
+    private MeshCollider col;
     public Object gurt;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        collider = GetComponent<MeshCollider>();
+        col = GetComponent<MeshCollider>();
     }
 
     // Update is called once per frame
