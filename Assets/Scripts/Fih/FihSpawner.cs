@@ -7,16 +7,9 @@ public class FihSpawner : MonoBehaviour
     [SerializeField] private float timer;
     private GameObject lastSpawnedFih;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         InvokeRepeating(nameof(SpawnFih), timer, timer);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void SpawnFih()

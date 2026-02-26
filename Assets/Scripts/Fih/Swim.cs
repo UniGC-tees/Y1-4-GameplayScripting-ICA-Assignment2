@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Swim : MonoBehaviour
 {
-
     private float swimAngle;
 
     private void Start()
