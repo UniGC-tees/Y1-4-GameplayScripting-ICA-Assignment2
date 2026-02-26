@@ -27,11 +27,18 @@ public class Crashable : MonoBehaviour
     {
         Debug.Log("mewo");
         Instantiate(gurt, transform);
+        Invoke(nameof(HideMesh), 0.2f);
         Invoke(nameof(LoadGameScene), 2);
     }
 
     private void LoadGameScene()
     {
         SceneManager.LoadScene("game");
+    }
+
+    private void HideMesh()
+    {
+        // gameObject.SetActive(false);
+        GetComponent<MeshRenderer>().enabled = false;
     }
 }

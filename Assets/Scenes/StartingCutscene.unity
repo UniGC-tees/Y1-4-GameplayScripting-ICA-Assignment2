@@ -1019,6 +1019,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1147713610325345986, guid: 6174ad8584180de459cecbf987239025, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5897607317836354438, guid: 6174ad8584180de459cecbf987239025, type: 3}
       propertyPath: flySpeed
       value: 0.3
