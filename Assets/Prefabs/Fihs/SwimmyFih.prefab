@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e8343af2d450d4ea1e66e3ac6c23e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LifeSpan
-  span: 15
+  span: 60
 --- !u!1001 &8771264437012553554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d055a843849ed7244ad68f5775d77a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Swim
+  swimSpeed: 0.05
 --- !u!4 &6789610922425829897 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2846347127421637979, guid: c588ff8b4742cfb40a7e5e2c718a6e37, type: 3}

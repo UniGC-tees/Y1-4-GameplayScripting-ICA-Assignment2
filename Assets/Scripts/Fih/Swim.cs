@@ -4,6 +4,7 @@ using UnityEngine;
 public class Swim : MonoBehaviour
 {
     private float swimAngle;
+    [SerializeField] private float swimSpeed;
 
     private void Start()
     {
@@ -16,7 +17,7 @@ public class Swim : MonoBehaviour
     {
         transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y + swimAngle, 0);
 
-        transform.position += -transform.forward*0.1f;
+        transform.position += -transform.forward * swimSpeed;
     }
 
     private void Nudge()
