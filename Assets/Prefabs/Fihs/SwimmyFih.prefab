@@ -124,6 +124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Swim
   swimSpeed: 0.05
+  mask:
+    serializedVersion: 2
+    m_Bits: 16
 --- !u!4 &6789610922425829897 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2846347127421637979, guid: c588ff8b4742cfb40a7e5e2c718a6e37, type: 3}
