@@ -8,6 +8,9 @@ public class KillTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.gameObject.GetComponent<Killable>().Die();
+        if (other.gameObject.GetComponent<Killable>())
+        {
+            other.gameObject.GetComponent<Killable>().Die();
+        }
     }
 }

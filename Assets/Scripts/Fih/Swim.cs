@@ -40,15 +40,10 @@ public class Swim : MonoBehaviour
         if (Physics.Raycast(transform.position + new Vector3(0,10000,0), -transform.up, out hit, 30000f, mask, QueryTriggerInteraction.Collide))
         {
             transform.position = hit.point - new Vector3(0,0,0);
-
-            Debug.Log("hit");
-
-
-            // Debug.DrawRay(transform.position + new Vector3(0, 50, 0), -transform.up, new Color(50, 50, 50), 30f);
         }
         else
         {
-            Debug.Log("no hit");
+            Debug.Log("fih: tried to align to water... but no hit");
         }
     }
 }
