@@ -4,41 +4,46 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(SphereCollider))]
 
 public class Bobber : MonoBehaviour
 {
     Rigidbody body;
+    public GameObject fisher;
     bool currentlyBobbing = false;
 
     void Start()
     {
-        body = GetComponent<Rigidbody>();
+        body = transform.parent.GetComponent<Rigidbody>();
 
         body.AddForce(transform.forward * 400, ForceMode.Force);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!currentlyBobbing)
+        if (!currentlyBobbing && other.transform.parent != transform.parent)
         {
             if(other.gameObject.tag.Equals("BobbableSurface"))
             {
-                UnityEngine.Debug.Log("i should be bobbing");
-
                 StartCoroutine(Bobbing());
             }
             else
             {
-                Destroy(gameObject);
+                Destroy(transform.parent.gameObject);
+            }
+        }
+        else
+        {
+            if (currentlyBobbing && other.TryGetComponent<Swim>(out Swim swim))
+            {
+                swim.shouldMove = false;
+                swim.Pull(fisher);
             }
         }
     }
 
     private IEnumerator Bobbing()
     {
-        UnityEngine.Debug.Log("bobbing started");
         currentlyBobbing = true;
 
         Vector3 tinyUp = new (0, 0.01f, 0);
@@ -49,11 +54,10 @@ public class Bobber : MonoBehaviour
         body.angularVelocity = Vector3.zero;
         body.isKinematic = true;
 
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position + new Vector3(0, 10000, 0), -transform.up, out hit, 30000f, 5, QueryTriggerInteraction.Collide))
+
+        if (Physics.Raycast(transform.position + new Vector3(0, 10000, 0), -transform.up, out RaycastHit hit, 30000f, 5, QueryTriggerInteraction.Collide))
         {
-            transform.position = hit.point + new Vector3 (0,-0.9f,0);
-            UnityEngine.Debug.Log("I HIT!!");
+            transform.position = hit.point + new Vector3 (0,-2.23f,0);
         }
 
         while (true)

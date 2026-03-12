@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Swim : MonoBehaviour
@@ -6,6 +7,9 @@ public class Swim : MonoBehaviour
     private float swimAngle;
     [SerializeField] private float swimSpeed;
     public LayerMask mask;
+    [HideInInspector] public bool freaky = true;
+    private GameObject bob;
+    [HideInInspector] public bool shouldMove = true;
 
     private void Start()
     {
@@ -16,11 +20,24 @@ public class Swim : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y + swimAngle, 0);
+        if (shouldMove)
+        {
+            if (freaky)
+            {
+                transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y + swimAngle, 0);
+            }
+            else
+            {
+                Vector3 targetDir = bob.transform.position - transform.position;
+                float angle = Vector3.Angle(targetDir, -transform.forward);
 
-        transform.position += -transform.forward * swimSpeed;
+                transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y + angle, 0);
+            }
 
-        AlignToWater();
+            transform.position += -transform.forward * swimSpeed; 
+
+            AlignToWater();
+        }
     }
 
     private void Nudge()
@@ -44,6 +61,22 @@ public class Swim : MonoBehaviour
         else
         {
             Debug.Log("fih: tried to align to water... but no hit");
+        }
+    }
+
+    public void GoCrazy(GameObject bob)
+    {
+        Debug.Log("hey yo im liyt crae");
+        this.bob = bob;
+    }
+
+    public IEnumerator Pull(GameObject towards)
+    {
+        bool reached = false;
+        while (!reached)
+        {
+            transform.position = Vector3.Lerp(towards.transform.position, transform.position, 0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 }

@@ -56,7 +56,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2846347127421637979, guid: c588ff8b4742cfb40a7e5e2c718a6e37, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.42072
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2846347127421637979, guid: c588ff8b4742cfb40a7e5e2c718a6e37, type: 3}
       propertyPath: m_LocalPosition.y
@@ -64,7 +64,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2846347127421637979, guid: c588ff8b4742cfb40a7e5e2c718a6e37, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.2564
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2846347127421637979, guid: c588ff8b4742cfb40a7e5e2c718a6e37, type: 3}
       propertyPath: m_LocalRotation.w
@@ -105,6 +105,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4540934764159287831, guid: c588ff8b4742cfb40a7e5e2c718a6e37, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5598793757846831195}
+    - targetCorrespondingSourceObject: {fileID: 4540934764159287831, guid: c588ff8b4742cfb40a7e5e2c718a6e37, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1060492002821182850}
   m_SourcePrefab: {fileID: 100100000, guid: c588ff8b4742cfb40a7e5e2c718a6e37, type: 3}
 --- !u!1 &5097351932684115269 stripped
 GameObject:
@@ -127,6 +130,28 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 16
+  freaky: 1
+--- !u!135 &1060492002821182850
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5097351932684115269}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &6789610922425829897 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2846347127421637979, guid: c588ff8b4742cfb40a7e5e2c718a6e37, type: 3}

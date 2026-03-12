@@ -1,0 +1,25 @@
+using UnityEngine;
+
+[RequireComponent(typeof(SphereCollider))]
+
+public class Yummy : MonoBehaviour
+{
+    [SerializeField] private GameObject[] thisIsAFih;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent<Swim>(out Swim swim))
+        {
+            swim.freaky = false;
+            swim.GoCrazy(gameObject);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent<Swim>(out Swim swim))
+        {
+            swim.freaky = true;
+        }
+    }
+}
