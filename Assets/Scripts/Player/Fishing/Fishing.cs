@@ -14,4 +14,13 @@ public class Fishing : MonoBehaviour
             currentBobber = Instantiate(bobber, transform.position + (transform.forward * 1) + new Vector3(0,2,0), transform.rotation);
         }
     }
+
+    void OnRightClick()
+    {
+        if (currentBobber  != null)
+        {
+            Destroy(currentBobber);
+            currentBobber = null;
+        }
+    }
 }

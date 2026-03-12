@@ -2,6 +2,7 @@ using System.Collections;
 using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(SphereCollider))]
@@ -40,23 +41,34 @@ public class Bobber : MonoBehaviour
         UnityEngine.Debug.Log("bobbing started");
         currentlyBobbing = true;
 
-        Vector3 tinyUp = new (0, 0.05f, 0);
+        Vector3 tinyUp = new (0, 0.01f, 0);
 
+        // STOP
         body.useGravity = false;
-        body.angularVelocity = new Vector3(0, 0, 0);
+        body.linearVelocity = Vector3.zero;
+        body.angularVelocity = Vector3.zero;
+        body.isKinematic = true;
 
-        for (int i = 0; i < 30; i++)
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position + new Vector3(0, 10000, 0), -transform.up, out hit, 30000f, 5, QueryTriggerInteraction.Collide))
         {
-            transform.position = transform.position + tinyUp;
-            yield return new WaitForSeconds(0.03f);
+            transform.position = hit.point + new Vector3 (0,-0.9f,0);
+            UnityEngine.Debug.Log("I HIT!!");
         }
 
-        yield return new WaitForSeconds(1);
-
-        for (int i = 0; i < 30; i++)
+        while (true)
         {
-            transform.position = transform.position + -tinyUp;
-            yield return new WaitForSeconds(0.03f);
+            for (int i = 0; i < 10; i++)
+            {
+                transform.position = transform.position + tinyUp;
+                yield return new WaitForSeconds(0.03f);
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                transform.position = transform.position + -tinyUp;
+                yield return new WaitForSeconds(0.03f);
+            }
         }
     }
 }
