@@ -12,7 +12,7 @@ public class Fishing : MonoBehaviour
         if (currentBobber == null)
         {
             currentBobber = Instantiate(bobber, transform.position + (transform.forward * 1) + new Vector3(0,2,0), transform.rotation);
-            currentBobber.GetComponent<Bobber>().fisher = gameObject;
+            currentBobber.GetComponentInChildren<Bobber>().fisher = this.gameObject;
         }
     }
 

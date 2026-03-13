@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Diagnostics;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,7 +35,8 @@ public class Bobber : MonoBehaviour
             if (currentlyBobbing && other.TryGetComponent<Swim>(out Swim swim))
             {
                 swim.shouldMove = false;
-                swim.Pull(fisher);
+                Debug.Log("i am going to tell the fih to be pulled");
+                StartCoroutine(swim.Pull(fisher));
             }
         }
     }

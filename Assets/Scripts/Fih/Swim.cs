@@ -72,11 +72,23 @@ public class Swim : MonoBehaviour
 
     public IEnumerator Pull(GameObject towards)
     {
-        bool reached = false;
-        while (!reached)
+        Debug.Log("i am being pulled");
+
+        gameObject.AddComponent<Rotate>();
+        Shrink shrinkScript = gameObject.AddComponent<Shrink>();
+
+        while (true)
         {
-            transform.position = Vector3.Lerp(towards.transform.position, transform.position, 0.1f);
-            yield return new WaitForSeconds(0.05f);
+            transform.position = Vector3.Lerp(transform.position, towards.transform.position + new Vector3(0,2,0), 0.02f);
+
+            if (shrinkScript.done)
+            {
+                break;
+            }
+
+            yield return new WaitForSeconds(0.01f);
         }
+        Debug.Log("i am done being pulled");
+        Destroy(gameObject);
     }
 }
