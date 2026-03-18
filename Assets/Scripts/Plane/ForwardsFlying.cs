@@ -1,4 +1,3 @@
-using Unity.VisualScripting.ReorderableList.Internal;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]

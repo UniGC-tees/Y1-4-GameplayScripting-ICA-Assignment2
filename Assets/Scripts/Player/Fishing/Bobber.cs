@@ -56,7 +56,7 @@ public class Bobber : MonoBehaviour
 
         if (Physics.Raycast(transform.position + new Vector3(0, 10000, 0), -transform.up, out RaycastHit hit, 30000f, 5, QueryTriggerInteraction.Collide))
         {
-            transform.position = hit.point + new Vector3 (0,-2.23f,0);
+            transform.position = hit.point + new Vector3 (0,-2.35f,0);
         }
 
         while (true)

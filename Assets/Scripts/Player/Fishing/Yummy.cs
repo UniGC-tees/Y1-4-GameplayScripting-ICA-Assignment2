@@ -11,7 +11,7 @@ public class Yummy : MonoBehaviour
         if (other.TryGetComponent<Swim>(out Swim swim))
         {
             swim.freaky = false;
-            swim.GoCrazy(gameObject);
+            swim.GoCrazy(transform.parent.gameObject);
         }
     }
 
