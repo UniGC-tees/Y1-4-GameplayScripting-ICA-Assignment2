@@ -36,7 +36,7 @@ public class Bobber : MonoBehaviour
             {
                 swim.shouldMove = false;
                 Debug.Log("i am going to tell the fih to be pulled");
-                StartCoroutine(swim.Pull(fisher));
+                swim.StartCoroutine(swim.Pull(fisher));
             }
         }
     }
