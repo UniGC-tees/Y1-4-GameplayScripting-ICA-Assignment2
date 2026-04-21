@@ -61,7 +61,7 @@ public class Bobber : MonoBehaviour
         body.isKinematic = true;
 
 
-        if (Physics.Raycast(transform.position + new Vector3(0, 10000, 0), -transform.up, out RaycastHit hit, 30000f, 5, QueryTriggerInteraction.Collide))
+        if (Physics.Raycast(transform.position + new Vector3(0, 10000, 0), Vector3.down, out RaycastHit hit, 30000f, 5, QueryTriggerInteraction.Collide))
         {
             transform.position = hit.point + new Vector3 (0,-2.35f,0);
         }

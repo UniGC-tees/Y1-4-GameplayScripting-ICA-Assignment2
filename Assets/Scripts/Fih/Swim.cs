@@ -36,24 +36,11 @@ public class Swim : MonoBehaviour
                     return;
                 }
 
-                /*
-                 * 
-                 * old hungry
-                 * 
-                Vector3 targetDir = bob.transform.position - transform.position;
-                float angle = Vector3.Angle(targetDir, -transform.forward);
-
-                transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y + angle, 0);
-                */
-
                 Quaternion r = transform.rotation;
-
                 transform.LookAt(bob.transform.position);
+                Quaternion goalR = transform.rotation * new Quaternion(0,-1,0,0);
 
-                Quaternion goalR = transform.rotation;
-
-                transform.rotation = Quaternion.Lerp(r, goalR, 0.001f);
-
+                transform.rotation = Quaternion.Lerp(r, goalR, 0.07f);
             }
 
             transform.position += -transform.forward * swimSpeed; 
@@ -76,7 +63,7 @@ public class Swim : MonoBehaviour
     private void AlignToWater()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + new Vector3(0,10000,0), -transform.up, out hit, 30000f, mask, QueryTriggerInteraction.Collide))
+        if (Physics.Raycast(transform.position + new Vector3(0,10000,0), Vector3.down, out hit, 30000f, mask, QueryTriggerInteraction.Collide))
         {
             transform.position = hit.point - new Vector3(0,0,0);
         }
