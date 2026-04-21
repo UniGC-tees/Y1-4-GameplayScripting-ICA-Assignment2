@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Swim : MonoBehaviour
 {
+    public LayerMask mask;
+
     private float swimAngle;
     [SerializeField] private float swimSpeed;
-    public LayerMask mask;
     [HideInInspector] public bool freaky = true;
-    private GameObject bob;
     [HideInInspector] public bool shouldMove = true;
+    private GameObject bob;
+    private Vector3 bobLastKnownPos;
 
     private void Start()
     {
@@ -28,6 +30,12 @@ public class Swim : MonoBehaviour
             }
             else
             {
+                if (bob == null)
+                {
+                    freaky = true;
+                    return;
+                }
+
                 Vector3 targetDir = bob.transform.position - transform.position;
                 float angle = Vector3.Angle(targetDir, -transform.forward);
 
