@@ -84,7 +84,9 @@ public class Bobber : MonoBehaviour
 
     public void BreakBobber()
     {
-        GetComponentInChildren<CamHolder>().ChangeCamOwner(fisher.transform);
+        CamHolder camHolder = GetComponentInChildren<CamHolder>();
+
+        if (camHolder != null) camHolder.ChangeCamOwner(fisher.transform);
 
         Destroy(transform.parent.gameObject);
     }
