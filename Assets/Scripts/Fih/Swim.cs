@@ -23,7 +23,7 @@ public class Swim : MonoBehaviour
     {
         if (shouldMove)
         {
-            if (freaky)
+            if (freaky) // freaky == not in range of a bobber
             {
                 transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y + swimAngle, 0);
             }
@@ -31,14 +31,29 @@ public class Swim : MonoBehaviour
             {
                 if (bob == null)
                 {
+                    Debug.Log("bobber removed by player");
                     freaky = true;
                     return;
                 }
 
+                /*
+                 * 
+                 * old hungry
+                 * 
                 Vector3 targetDir = bob.transform.position - transform.position;
                 float angle = Vector3.Angle(targetDir, -transform.forward);
 
                 transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y + angle, 0);
+                */
+
+                Quaternion r = transform.rotation;
+
+                transform.LookAt(bob.transform.position);
+
+                Quaternion goalR = transform.rotation;
+
+                transform.rotation = Quaternion.Lerp(r, goalR, 0.001f);
+
             }
 
             transform.position += -transform.forward * swimSpeed; 

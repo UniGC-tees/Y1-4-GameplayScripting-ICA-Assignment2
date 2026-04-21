@@ -10,6 +10,7 @@ public class Yummy : MonoBehaviour
     {
         if (other.TryGetComponent<Swim>(out Swim swim))
         {
+            Debug.Log("fih in range");
             swim.freaky = false;
             swim.GoCrazy(transform.parent.gameObject);
         }
@@ -19,6 +20,7 @@ public class Yummy : MonoBehaviour
     {
         if (other.TryGetComponent<Swim>(out Swim swim))
         {
+            Debug.Log("fih out of range");
             swim.freaky = true;
         }
     }
