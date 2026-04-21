@@ -89,6 +89,9 @@ public class Swim : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
         Debug.Log("i am done being pulled");
+
+        towards.GetComponent<TalkingFishManager>().Next();
+
         Destroy(gameObject);
     }
 }
