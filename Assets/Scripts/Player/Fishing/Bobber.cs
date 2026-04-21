@@ -15,6 +15,8 @@ public class Bobber : MonoBehaviour
         body = transform.parent.GetComponent<Rigidbody>();
 
         body.AddForce(transform.forward * 400, ForceMode.Force);
+
+        fisher.GetComponent<Fishing>().camHolder.ChangeCamOwner(transform);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,7 +34,7 @@ public class Bobber : MonoBehaviour
             }
             else
             {
-                Destroy(transform.parent.gameObject);
+                BreakBobber();
             }
         }
         else
@@ -78,5 +80,12 @@ public class Bobber : MonoBehaviour
                 yield return new WaitForSeconds(0.03f);
             }
         }
+    }
+
+    public void BreakBobber()
+    {
+        GetComponentInChildren<CamHolder>().ChangeCamOwner(fisher.transform);
+
+        Destroy(transform.parent.gameObject);
     }
 }

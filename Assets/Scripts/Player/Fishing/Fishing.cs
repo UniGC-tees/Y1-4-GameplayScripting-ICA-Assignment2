@@ -4,6 +4,7 @@ using UnityEngine;
 public class Fishing : MonoBehaviour
 {
     [SerializeField] private GameObject bobber;
+    public CamHolder camHolder;
 
     private GameObject currentBobber;
 
@@ -20,7 +21,7 @@ public class Fishing : MonoBehaviour
     {
         if (currentBobber  != null)
         {
-            Destroy(currentBobber);
+            currentBobber.GetComponentInChildren<Bobber>().BreakBobber();
             currentBobber = null;
         }
     }

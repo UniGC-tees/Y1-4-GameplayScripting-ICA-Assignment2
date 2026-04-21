@@ -6,6 +6,12 @@ public class FaceThis : MonoBehaviour
 
     private void Update()
     {
+        if (target == null)
+        {
+            Debug.Log("FACE THIS: TARGET IS NULL!!! SET THE TARGET SILLY!!!!");
+            return;
+        }
+
         transform.eulerAngles = target.transform.eulerAngles;
     }
 }
