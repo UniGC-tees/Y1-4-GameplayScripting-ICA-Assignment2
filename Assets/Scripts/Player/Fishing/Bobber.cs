@@ -21,7 +21,12 @@ public class Bobber : MonoBehaviour
     {
         if (!currentlyBobbing && other.transform.parent != transform.parent)
         {
-            if(other.gameObject.tag.Equals("BobbableSurface"))
+            if (other.gameObject.tag.Equals("Fih"))
+            {
+                Debug.Log("hey you though you could get me with throwing it dir on the fih.. yeahyeah im smarter than that now..");
+                return; //before bob just go through fih and dont destroy yourself pls
+            }
+            if (other.gameObject.tag.Equals("BobbableSurface"))
             {
                 StartCoroutine(Bobbing());
             }
