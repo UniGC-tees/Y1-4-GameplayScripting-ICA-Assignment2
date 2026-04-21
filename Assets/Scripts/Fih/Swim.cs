@@ -11,7 +11,6 @@ public class Swim : MonoBehaviour
     [HideInInspector] public bool freaky = true;
     [HideInInspector] public bool shouldMove = true;
     private GameObject bob;
-    private Vector3 bobLastKnownPos;
 
     private void Start()
     {
