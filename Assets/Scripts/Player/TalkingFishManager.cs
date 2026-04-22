@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TalkingFishManager : MonoBehaviour
 {
+    [SerializeField] private Craziness craziness;
     [SerializeField] private GameObject[] talkers;
 
     private int i = 0;
@@ -25,5 +26,7 @@ public class TalkingFishManager : MonoBehaviour
     private void Ending()
     {
         Debug.Log("RUNNING ENDING!!");
+
+        craziness.GoCrazy();
     }
 }
