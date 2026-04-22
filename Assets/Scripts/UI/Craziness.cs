@@ -4,9 +4,13 @@ using UnityEngine;
 public class Craziness : MonoBehaviour
 {
     [SerializeField] private GameObject mySon;
+    [SerializeField] private GameObject lightPrefab;
     public RectTransform CanvasRect;
 
     private Vector3[] corners;
+
+    private int kids = 0;
+    private const int maxKids = 60;
 
     private void Start()
     {
@@ -23,7 +27,7 @@ public class Craziness : MonoBehaviour
 
     public void GoCrazy()
     {
-        InvokeRepeating(nameof(SpawnKid), 0, 5);
+        InvokeRepeating(nameof(SpawnKid), 0, 1.5f);
     }
 
     private void SpawnKid()
@@ -35,6 +39,18 @@ public class Craziness : MonoBehaviour
         float randScale = Random.Range(0.7f, 1.3f);
         newborn.transform.localScale = new(randScale, randScale, randScale);
         newborn.transform.localPosition = (corners[Random.Range(0, 3)] * 3) + RandomVector3XY(700);
+
+        kids++;
+        if (kids > maxKids)
+        {
+            //cooked
+            GameObject theLight = Instantiate(lightPrefab);
+            theLight.transform.parent = gameObject.transform;
+            theLight.transform.localPosition = Vector3.zero;
+
+            Destroy(this);
+            return;
+        }
     }
 
     private Vector3 RandomVector3XY(int maxOffset)
