@@ -3,10 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class Killable : MonoBehaviour
 {
+    [SerializeField] private GameObject spawnpoint;
+
     public void Die()
     {
         Debug.Log("gurt: yo");
-        ReloadScene();
+        //GetComponent<CharacterController>(). = new(0,1000,0);
     }
     private void ReloadScene()
     {

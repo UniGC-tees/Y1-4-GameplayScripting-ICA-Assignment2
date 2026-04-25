@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6334068463769860574}
   - component: {fileID: 5545245089420780552}
+  - component: {fileID: 8667679101165864890}
+  - component: {fileID: 5875816904058284480}
   m_Layer: 0
   m_Name: TalkingFih2
   m_TagString: Untagged
@@ -47,6 +49,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Yapper
   tmp: {fileID: 4218843094858809500}
+  yap: []
+--- !u!135 &8667679101165864890
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6008355631388646672}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5875816904058284480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6008355631388646672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581d47f0985107c45b4c3418eaf72008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArrowRemover
 --- !u!1001 &788701709242638518
 PrefabInstance:
   m_ObjectHideFlags: 0

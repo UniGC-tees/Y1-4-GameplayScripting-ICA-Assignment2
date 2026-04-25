@@ -86,6 +86,8 @@ public class Swim : MonoBehaviour
         gameObject.AddComponent<Rotate>();
         Shrink shrinkScript = gameObject.AddComponent<Shrink>();
 
+        transform.parent.GetComponent<LifeSpan>().shouldDie = false;
+
         while (true)
         {
             transform.position = Vector3.Lerp(transform.position, towards.transform.position + new Vector3(0,2,0), 0.02f);
