@@ -1,14 +1,20 @@
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Killable : MonoBehaviour
 {
-    [SerializeField] private GameObject spawnpoint;
+    [SerializeField] private Transform spawnpoint;
 
     public void Die()
     {
         Debug.Log("gurt: yo");
-        //GetComponent<CharacterController>(). = new(0,1000,0);
+
+        CharacterController controller = GetComponent<CharacterController>();
+        
+        controller.enabled = false;
+        transform.position = spawnpoint.position;
+        controller.enabled = true;
     }
     private void ReloadScene()
     {
