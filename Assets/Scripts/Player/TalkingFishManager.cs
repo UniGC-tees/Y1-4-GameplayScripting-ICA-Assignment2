@@ -43,6 +43,6 @@ public class TalkingFishManager : MonoBehaviour
     {
         Debug.Log("RUNNING ENDING!!");
 
-        craziness.GoCrazy();
+        if (craziness != null) /* i kill later on so just in case */ craziness.GoCrazy();
     }
 }
